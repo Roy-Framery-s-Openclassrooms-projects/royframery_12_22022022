@@ -1,0 +1,35 @@
+@use '../../utils/sass/colors' as *;
+
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    width: 117px;
+    min-height: 780px;
+    height: 100%;
+    background: $color-primary;
+
+    &__icons {
+        display: grid;
+        row-gap: 20px;
+    }
+
+    &__text {
+        position: absolute;
+        bottom: 10%;
+
+        width: 100%;
+
+        color: $white;
+        font-size: 12px;
+        white-space: nowrap;
+
+        transform: rotate(-90deg);
+    }
+}

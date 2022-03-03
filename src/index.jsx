@@ -6,12 +6,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Profil from './pages/Profil'
 // Components
 import Header from './components/Header'
+import SideBar from './components/SideBar'
 // CSS
 import './index.scss'
 ReactDOM.render(
     <React.StrictMode>
         <Router>
             <Header />
+            <SideBar />
             <Routes>
                 <Route path="/profil" element={<Profil />} />
             </Routes>
