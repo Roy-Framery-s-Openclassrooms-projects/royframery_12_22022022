@@ -11,8 +11,8 @@
     z-index: 1;
 
     width: 117px;
-    min-height: 780px;
-    height: 100%;
+    min-height: inherit;
+    height: inherit;
     background: $color-primary;
 
     &__icons {
