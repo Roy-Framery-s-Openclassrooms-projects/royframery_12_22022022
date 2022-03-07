@@ -1,0 +1,17 @@
+@use '../../utils/sass/colors' as *;
+
+.dashboardHeader {
+    &__title {
+        font-size: 48px;
+        font-weight: inherit;
+    }
+
+    &__name {
+        color: $color-secondary;
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
