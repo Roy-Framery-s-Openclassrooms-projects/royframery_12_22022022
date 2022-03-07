@@ -1,31 +1,23 @@
-import GetUserById from '../../services/api'
-// Class
-import User from '../../class/User'
+import PropTypes from 'prop-types'
 // CSS
 import './DashboardHeader.scss'
 
-const DashboardHeader = () => {
-    const { isLoading, user } = GetUserById(12)
-
-    const userInfos = !isLoading ? new User(user.userInfos) : ''
-
+const DashboardHeader = ({ firstname }) => {
     return (
         <div className="dashboardHeader">
-            {isLoading ? (
-                <p>chargement...</p>
-            ) : (
-                <h1 className="dashboardHeader__title">
-                    Bonjour
-                    <span className="dashboardHeader__name">
-                        {' ' + userInfos.firstName}
-                    </span>
-                </h1>
-            )}
+            <h1 className="dashboardHeader__title">
+                Bonjour
+                <span className="dashboardHeader__name">{' ' + firstname}</span>
+            </h1>
             <p className="dashboardHeader__text">
                 Félicitation ! Vous avez explosé vos objectifs hier 👏
             </p>
         </div>
     )
+}
+
+DashboardHeader.propTypes = {
+    firstname: PropTypes.string.isRequired,
 }
 
 export default DashboardHeader

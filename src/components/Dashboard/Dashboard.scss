@@ -1,4 +1,19 @@
 .dashboard {
     width: 85%;
-    margin: 50px auto;
+    margin: auto;
+    padding-top: 50px;
+
+    &__charts {
+        display: flex;
+        margin-top: 60px;
+        column-gap: 30px;
+
+        &-left {
+            width: 80%;
+        }
+
+        &-right {
+            width: 20%;
+        }
+    }
 }
