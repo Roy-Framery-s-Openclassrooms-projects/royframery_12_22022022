@@ -11,9 +11,12 @@ body {
     font-weight: 500;
 }
 
-#root {
+#root,
+body,
+html {
     margin: auto;
     max-width: 1440px;
     min-width: 1024px;
     min-height: 780px;
+    height: 100vh;
 }

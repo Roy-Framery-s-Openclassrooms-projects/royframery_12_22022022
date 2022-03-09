@@ -29,7 +29,8 @@ const CustomTooltip = ({ active, payload }) => {
 
 const Activity = () => {
     const { isLoading, userActivity } = GetUserActivityById(12)
-    const Useractivities = !isLoading ? new Activities(userActivity) : []
+    let Useractivities = !isLoading ? new Activities(userActivity) : []
+    console.log(Useractivities.formatedActivities)
 
     return (
         <div className="activity">

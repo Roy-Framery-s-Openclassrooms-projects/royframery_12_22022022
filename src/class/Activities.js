@@ -1,20 +1,21 @@
 class Activities {
     constructor(data) {
-        this._activities = data.sessions
+        this._activities = data.sessions.map((session) => {
+            return {
+                name: this.formatedDate(session.day),
+                ...session,
+            }
+        })
     }
 
     get formatedActivities() {
-        const formatedActivities = []
-        console.log(this._activities)
-        for (let i = 0; i < this._activities.length; i++) {
-            const activity = this._activities[i]
-            formatedActivities.push({
-                name: i + 1,
-                kilogram: activity.kilogram,
-                calories: activity.calories,
-            })
-        }
-        return formatedActivities
+        // console.log(this._activities)
+        return this._activities
+    }
+
+    formatedDate = (date) => {
+        const day = new Date(date)
+        return day.getDate().toString()
     }
 }
 

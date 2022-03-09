@@ -2,6 +2,7 @@
     width: 85%;
     margin: auto;
     padding-top: 50px;
+    height: 100%;
 
     &__charts {
         display: flex;
@@ -14,6 +15,9 @@
 
         &-right {
             width: 20%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 39px;
         }
     }
 }
