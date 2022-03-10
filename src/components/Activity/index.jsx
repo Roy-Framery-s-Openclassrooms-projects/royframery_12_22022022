@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+// Recharts
 import {
     BarChart,
     Bar,
@@ -8,7 +11,8 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts'
-import { GetUserActivityById } from '../../services/api'
+// Api
+import { getUserActivityById } from '../../services/api'
 // Class
 import Activities from '../../class/Activities'
 // CSS
@@ -28,9 +32,20 @@ const CustomTooltip = ({ active, payload }) => {
 }
 
 const Activity = () => {
-    const { isLoading, userActivity } = GetUserActivityById(12)
+    const { id } = useParams()
+    const [userActivity, setUserActivities] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        const fetch = async () => {
+            const useActivities = await getUserActivityById(id)
+            setUserActivities(useActivities)
+            setIsLoading(false)
+        }
+        fetch()
+    }, [id])
+
     let Useractivities = !isLoading ? new Activities(userActivity) : []
-    console.log(Useractivities.formatedActivities)
 
     return (
         <div className="activity">

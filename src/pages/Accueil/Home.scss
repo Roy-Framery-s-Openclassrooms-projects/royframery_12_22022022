@@ -1,0 +1,54 @@
+@use '../../utils/sass/colors' as *;
+.home {
+    padding-left: 117px;
+
+    &__links {
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        margin: auto;
+        padding-top: 50px;
+
+        &-api {
+            width: 67%;
+
+            &-links {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &-infos {
+                width: 50%;
+                margin: auto;
+                padding-top: 20px;
+
+                &-title {
+                    color: #e6000085;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 87px;
+        border-radius: 5px;
+        font-size: 24px;
+        color: $color-primary;
+        text-decoration: none;
+        box-shadow: 0px 5px 15px #00000049;
+        text-align: center;
+
+        &-api {
+            width: 48%;
+            background: #e6000021;
+        }
+        &-mock {
+            width: 30%;
+            background: $grey;
+        }
+    }
+}

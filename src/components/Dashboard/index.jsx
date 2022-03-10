@@ -1,4 +1,8 @@
-import { GetUserById } from '../../services/api'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+// API
+// import { GetUserById } from '../../services/api'
+import { getUserById } from '../../services/api'
 // Class
 import User from '../../class/User'
 // components
@@ -9,7 +13,18 @@ import KeyData from '../KeyData'
 import './Dashboard.scss'
 
 const Dashboard = () => {
-    const { isLoading, user } = GetUserById(12)
+    const { id } = useParams()
+    const [user, setUser] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        const fetch = async () => {
+            const user = await getUserById(id)
+            setUser(user)
+            setIsLoading(false)
+        }
+        fetch()
+    }, [id])
 
     const userClass = !isLoading
         ? new User(
@@ -23,6 +38,21 @@ const Dashboard = () => {
               user.keyData.lipidCount
           )
         : ''
+
+    // const { isLoading, user } = GetUserById(12)
+
+    // const userClass = !isLoading
+    //     ? new User(
+    //           user.userInfos.firstName,
+    //           user.userInfos.lastName,
+    //           user.userInfos.age,
+    //           user.score ? user.score : user.todayScore,
+    //           user.keyData.calorieCount,
+    //           user.keyData.proteinCount,
+    //           user.keyData.carbohydrateCount,
+    //           user.keyData.lipidCount
+    //       )
+    //     : ''
 
     return (
         <div className="dashboard">

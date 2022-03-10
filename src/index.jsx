@@ -4,6 +4,7 @@ import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // pages
 import Profil from './pages/Profil'
+import Home from './pages/Accueil'
 // Components
 import Header from './components/Header'
 import SideBar from './components/SideBar'
@@ -15,7 +16,8 @@ ReactDOM.render(
             <Header />
             <SideBar />
             <Routes>
-                <Route path="/profil" element={<Profil />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/profil/:id" element={<Profil />} />
             </Routes>
         </Router>
     </React.StrictMode>,
