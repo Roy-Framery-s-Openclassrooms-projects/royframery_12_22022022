@@ -23,7 +23,7 @@ const getUserActivityById = async (id) => {
     if (id === 'mock') BASE_URL = '/data.json'
     try {
         const response = await fetch(
-            BASE_URL + (id === 'mock' ? '' : id + '/activity')
+            BASE_URL + (id === 'mock' ? '' : `${id}activity`)
         )
         if (response.ok) {
             const data = await response.json()
@@ -41,4 +41,54 @@ const getUserActivityById = async (id) => {
     }
 }
 
-export { getUserById, getUserActivityById }
+const getAverageSessionsById = async (id) => {
+    if (id === 'mock') BASE_URL = '/data.json'
+    try {
+        const response = await fetch(
+            BASE_URL + (id === 'mock' ? '' : `${id}/average-sessions`)
+        )
+        if (response.ok) {
+            const data = await response.json()
+            if (id === 'mock') {
+                const userActivities = data.average_sessions.find(
+                    (activity) => activity.userId === 12
+                )
+                return userActivities
+            } else {
+                console.log(data)
+                return data.data
+            }
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+const getPerformanceById = async (id) => {
+    if (id === 'mock') BASE_URL = '/data.json'
+    try {
+        const response = await fetch(
+            BASE_URL + (id === 'mock' ? '' : `${id}/performance`)
+        )
+        if (response.ok) {
+            const data = await response.json()
+            if (id === 'mock') {
+                const userActivities = data.performance.find(
+                    (activity) => activity.userId === 12
+                )
+                return userActivities
+            } else {
+                return data.data
+            }
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+export {
+    getUserById,
+    getUserActivityById,
+    getAverageSessionsById,
+    getPerformanceById,
+}

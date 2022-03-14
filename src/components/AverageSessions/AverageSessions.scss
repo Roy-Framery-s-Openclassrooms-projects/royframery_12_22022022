@@ -1,0 +1,29 @@
+@use '../../utils/sass/colors' as *;
+
+.average-sessions {
+    height: 43%;
+    width: 30%;
+    background: $red;
+    border-radius: 5px;
+
+    &__tooltip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 39px;
+        height: 25px;
+        background: $white;
+        font-size: 8px;
+    }
+
+    &__legend {
+        color: $white;
+        opacity: 0.5;
+    }
+
+    & .recharts {
+        &-line {
+            transform: translateX(12px);
+        }
+    }
+}
