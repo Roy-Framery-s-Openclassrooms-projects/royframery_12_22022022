@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
 // Recharts
 import {
     BarChart,
@@ -11,8 +10,6 @@ import {
     Legend,
     ResponsiveContainer,
 } from 'recharts'
-// Api
-import { getUserActivityById } from '../../services/api'
 // Class
 import Activities from '../../class/Activities'
 // CSS
@@ -31,103 +28,81 @@ const CustomTooltip = ({ active, payload }) => {
     return null
 }
 
-const Activity = () => {
-    const { id } = useParams()
-    const [userActivity, setUserActivities] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-
-    useEffect(() => {
-        const fetch = async () => {
-            const useActivities = await getUserActivityById(id)
-            setUserActivities(useActivities)
-            setIsLoading(false)
-        }
-        fetch()
-    }, [id])
-
-    let Useractivities = !isLoading ? new Activities(userActivity) : []
+const Activity = ({ userActivity }) => {
+    let Useractivities = new Activities(userActivity)
 
     return (
         <div className="activity">
-            {isLoading ? (
-                <p>chargement...</p>
-            ) : (
-                <>
-                    <div className="activity__title">Activité quotidienne</div>
-                    <ResponsiveContainer>
-                        <BarChart
-                            width={500}
-                            height={300}
-                            data={Useractivities.formatedActivities}
-                            barSize={7}
-                            barGap={8}
-                            margin={{
-                                bottom: 60,
-                            }}
-                        >
-                            <CartesianGrid
-                                strokeDasharray="3 3"
-                                vertical={false}
-                            />
-                            <XAxis
-                                dataKey="name"
-                                tickLine={false}
-                                tickMargin={15}
-                            />
-                            <YAxis
-                                yAxisId="right"
-                                dataKey="kilogram"
-                                orientation="right"
-                                axisLine={false}
-                                tickLine={false}
-                                domain={['dataMin - 2', 'dataMax + 2']}
-                                tickMargin={35}
-                            />
-                            <YAxis
-                                yAxisId="left"
-                                dataKey="calories"
-                                orientation="left"
-                                hide={true}
-                            />
+            <div className="activity__title">Activité quotidienne</div>
+            <ResponsiveContainer>
+                <BarChart
+                    width={500}
+                    height={300}
+                    data={Useractivities.formatedActivities}
+                    barSize={7}
+                    barGap={8}
+                    margin={{
+                        bottom: 60,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                    <XAxis dataKey="name" tickLine={false} tickMargin={15} />
+                    <YAxis
+                        yAxisId="right"
+                        dataKey="kilogram"
+                        orientation="right"
+                        axisLine={false}
+                        tickLine={false}
+                        domain={['dataMin - 2', 'dataMax + 2']}
+                        tickMargin={35}
+                    />
+                    <YAxis
+                        yAxisId="left"
+                        dataKey="calories"
+                        orientation="left"
+                        hide={true}
+                    />
 
-                            <Tooltip content={<CustomTooltip />} offset={50} />
-                            <Legend
-                                payload={[
-                                    {
-                                        value: 'Poids (kg)',
-                                        type: 'circle',
-                                        id: 'ID01',
-                                    },
-                                    {
-                                        value: 'Calories brûlées (kCal)',
-                                        type: 'circle',
-                                        id: 'ID02',
-                                        color: '#E60000',
-                                    },
-                                ]}
-                                align="right"
-                                verticalAlign="top"
-                                iconSize={8}
-                                wrapperStyle={{ top: '-50px', right: '-10px' }}
-                            />
-                            <Bar
-                                yAxisId="right"
-                                dataKey="kilogram"
-                                fill="#282D30"
-                                radius={[10, 10, 0, 0]}
-                            />
-                            <Bar
-                                yAxisId="left"
-                                dataKey="calories"
-                                fill="#E60000"
-                                radius={[10, 10, 0, 0]}
-                            />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </>
-            )}
+                    <Tooltip content={<CustomTooltip />} offset={50} />
+                    <Legend
+                        payload={[
+                            {
+                                value: 'Poids (kg)',
+                                type: 'circle',
+                                id: 'ID01',
+                            },
+                            {
+                                value: 'Calories brûlées (kCal)',
+                                type: 'circle',
+                                id: 'ID02',
+                                color: '#E60000',
+                            },
+                        ]}
+                        align="right"
+                        verticalAlign="top"
+                        iconSize={8}
+                        wrapperStyle={{ top: '-50px', right: '-10px' }}
+                    />
+                    <Bar
+                        yAxisId="right"
+                        dataKey="kilogram"
+                        fill="#282D30"
+                        radius={[10, 10, 0, 0]}
+                    />
+                    <Bar
+                        yAxisId="left"
+                        dataKey="calories"
+                        fill="#E60000"
+                        radius={[10, 10, 0, 0]}
+                    />
+                </BarChart>
+            </ResponsiveContainer>
         </div>
     )
+}
+
+Activity.propTypes = {
+    userActivity: PropTypes.object.isRequired,
 }
 
 export default Activity

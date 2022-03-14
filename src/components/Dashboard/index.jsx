@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 // API
-import { getUserById, getAverageSessionsById } from '../../services/api'
+import {
+    getUserById,
+    getUserActivityById,
+    getAverageSessionsById,
+} from '../../services/api'
 // Class
 import User from '../../class/User'
 // components
@@ -15,6 +19,7 @@ import './Dashboard.scss'
 const Dashboard = () => {
     const { id } = useParams()
     const [user, setUser] = useState({})
+    const [userActivity, setUserActivities] = useState([])
     const [averageSessions, setAverageSessions] = useState([])
 
     const [isLoading, setIsLoading] = useState(true)
@@ -23,6 +28,9 @@ const Dashboard = () => {
         const fetch = async () => {
             const user = await getUserById(id)
             setUser(user)
+
+            const useActivities = await getUserActivityById(id)
+            setUserActivities(useActivities)
 
             const averageSessions = await getAverageSessionsById(id)
             setAverageSessions(averageSessions)
@@ -54,7 +62,7 @@ const Dashboard = () => {
                     <DashboardHeader firstname={userClass.firstName} />
                     <div className="dashboard__charts">
                         <div className="dashboard__charts-left">
-                            <Activity />
+                            <Activity userActivity={userActivity} />
                             <AverageSessions
                                 averageSessionsData={averageSessions}
                             />
