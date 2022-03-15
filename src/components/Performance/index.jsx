@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import {
     Radar,
     RadarChart,
@@ -65,6 +66,10 @@ const Performances = ({ performanceData }) => {
             </ResponsiveContainer>
         </div>
     )
+}
+
+Performances.prototypes = {
+    performanceData: PropTypes.object.isRequired,
 }
 
 export default Performances
