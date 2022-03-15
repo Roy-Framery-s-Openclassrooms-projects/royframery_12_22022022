@@ -1,0 +1,16 @@
+@use '../../utils/sass/colors' as *;
+.radar {
+    display: flex;
+    height: 43%;
+    width: 31%;
+    background: $black;
+    border-radius: 5px;
+    padding: 5px;
+
+    & .recharts {
+        &-text {
+            text-transform: capitalize;
+            // font-size: clamp(8px, 0.8vw, 12px);
+        }
+    }
+}

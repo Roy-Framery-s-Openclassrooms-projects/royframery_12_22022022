@@ -50,12 +50,11 @@ const getAverageSessionsById = async (id) => {
         if (response.ok) {
             const data = await response.json()
             if (id === 'mock') {
-                const userActivities = data.average_sessions.find(
-                    (activity) => activity.userId === 12
+                const userAverageSessions = data.average_sessions.find(
+                    (averageSession) => averageSession.userId === 12
                 )
-                return userActivities
+                return userAverageSessions
             } else {
-                console.log(data)
                 return data.data
             }
         }
@@ -73,10 +72,10 @@ const getPerformanceById = async (id) => {
         if (response.ok) {
             const data = await response.json()
             if (id === 'mock') {
-                const userActivities = data.performance.find(
-                    (activity) => activity.userId === 12
+                const userPerformances = data.performance.find(
+                    (performance) => performance.userId === 12
                 )
-                return userActivities
+                return userPerformances
             } else {
                 return data.data
             }

@@ -5,6 +5,7 @@ import {
     getUserById,
     getUserActivityById,
     getAverageSessionsById,
+    getPerformanceById,
 } from '../../services/api'
 // Class
 import User from '../../class/User'
@@ -13,6 +14,7 @@ import DashboardHeader from '../DashboardHeader'
 import Activity from '../Activity'
 import KeyData from '../KeyData'
 import AverageSessions from '../AverageSessions'
+import Performances from '../Performance'
 // CSS
 import './Dashboard.scss'
 
@@ -21,6 +23,7 @@ const Dashboard = () => {
     const [user, setUser] = useState({})
     const [userActivity, setUserActivities] = useState([])
     const [averageSessions, setAverageSessions] = useState([])
+    const [performance, setPerformance] = useState([])
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -34,6 +37,9 @@ const Dashboard = () => {
 
             const averageSessions = await getAverageSessionsById(id)
             setAverageSessions(averageSessions)
+
+            const performance = await getPerformanceById(id)
+            setPerformance(performance)
 
             setIsLoading(false)
         }
@@ -66,6 +72,7 @@ const Dashboard = () => {
                             <AverageSessions
                                 averageSessionsData={averageSessions}
                             />
+                            <Performances performanceData={performance} />
                         </div>
                         <div className="dashboard__charts-right">
                             <KeyData
