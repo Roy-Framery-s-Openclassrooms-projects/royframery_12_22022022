@@ -23,7 +23,7 @@ const getUserActivityById = async (id) => {
     if (id === 'mock') BASE_URL = '/data.json'
     try {
         const response = await fetch(
-            BASE_URL + (id === 'mock' ? '' : `${id}activity`)
+            BASE_URL + (id === 'mock' ? '' : `${id}/activity`)
         )
         if (response.ok) {
             const data = await response.json()

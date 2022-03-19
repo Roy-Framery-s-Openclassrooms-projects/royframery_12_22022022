@@ -41,7 +41,7 @@ const Performances = ({ performanceData }) => {
                     cx="50%"
                     cy="50%"
                     outerRadius="70%"
-                    data={userPerformances._performance}
+                    data={userPerformances.performance}
                     innerRadius={10}
                     startAngle={30}
                     endAngle={-330}
@@ -50,10 +50,6 @@ const Performances = ({ performanceData }) => {
                     <PolarAngleAxis
                         dataKey="kind"
                         tickLine={false}
-                        // tick={{
-                        //     fill: '#FFF',
-                        //     fontSize: '0.8vw',
-                        // }}
                         tick={(props) => renderPolarAngleAxis(props)}
                     />
                     <PolarRadiusAxis axisLine={false} tick={false} />

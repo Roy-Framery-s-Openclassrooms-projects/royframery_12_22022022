@@ -15,6 +15,7 @@ import Activity from '../Activity'
 import KeyData from '../KeyData'
 import AverageSessions from '../AverageSessions'
 import Performances from '../Performance'
+import Score from '../Score'
 // CSS
 import './Dashboard.scss'
 
@@ -73,6 +74,7 @@ const Dashboard = () => {
                                 averageSessionsData={averageSessions}
                             />
                             <Performances performanceData={performance} />
+                            <Score score={userClass.score} />
                         </div>
                         <div className="dashboard__charts-right">
                             <KeyData

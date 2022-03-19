@@ -1,0 +1,37 @@
+@use '../../utils/sass/colors' as *;
+
+.score {
+    width: 31%;
+    height: 43%;
+    position: relative;
+    background: $grey;
+    border-radius: 5px;
+
+    &__legend {
+        font-size: 15px;
+        color: $color-primary;
+    }
+
+    &__label {
+        position: absolute;
+        top: 53%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: $color-primary;
+
+        & p {
+            width: 96px;
+        }
+    }
+
+    &__number {
+        font-weight: 700;
+        font-size: clamp(16px, 1.806vw, 26px);
+    }
+    &__text {
+        font-size: clamp(14px, 1.111vw, 16px);
+        color: $dark-grey;
+        line-height: 26px;
+    }
+}

@@ -8,6 +8,10 @@ export default class Performance {
         })
     }
 
+    get performance() {
+        return this._performance
+    }
+
     translateText = (text) => {
         switch (text) {
             case 'energy':
