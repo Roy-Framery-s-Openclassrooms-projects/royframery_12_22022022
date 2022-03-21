@@ -74,7 +74,9 @@ const AverageSessions = ({ averageSessionsData }) => {
                     height={263}
                     data={sessions.sessions}
                     margin={{ top: 10, right: 25, left: 20, bottom: 5 }}
-                    onMouseMove={(e) => handleColorBackground(e)}
+                    onMouseMove={(e) => {
+                        handleColorBackground(e)
+                    }}
                 >
                     <CartesianGrid
                         vertical={false}
@@ -96,7 +98,7 @@ const AverageSessions = ({ averageSessionsData }) => {
                     <Tooltip content={<CustomTooltip />} cursor={false} />
                     <Legend
                         verticalAlign="top"
-                        wrapperStyle={{ left: '34px', top: '29px' }}
+                        wrapperStyle={{ left: '14%', top: '11%' }}
                         content={renderLegend}
                     />
                     <defs>
