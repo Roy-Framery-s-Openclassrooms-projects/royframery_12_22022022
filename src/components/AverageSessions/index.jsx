@@ -16,6 +16,13 @@ import AverageSessionsClass from '../../class/AverageSessions'
 // CSS
 import './AverageSessions.scss'
 
+/**
+ *
+ * @description Component to custom the tooltip of the chart
+ * @param { Boolean } active - true if line hovered over, false if not
+ * @param { Object } payload - the data data of overflown line
+ * @returns { HTMLElement }
+ */
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         return (
@@ -28,6 +35,12 @@ const CustomTooltip = ({ active, payload }) => {
     return null
 }
 
+/**
+ *
+ * @description Component that show a custom dot when the dot is active on the chart
+ * @param { object } props - The properties of the active dot
+ * @returns { HTMLElement }
+ */
 const CustomActiveDot = (props) => {
     const { cy, cx } = props
 
@@ -39,6 +52,11 @@ const CustomActiveDot = (props) => {
     )
 }
 
+/**
+ *
+ * @description function to custom the background color of the chart according to the point flown over
+ * @param { Object } e - Properties of the event
+ */
 const handleColorBackground = (e) => {
     if (e.isTooltipActive === true) {
         let div = document.querySelector('.average-sessions')
@@ -49,6 +67,13 @@ const handleColorBackground = (e) => {
         div.style.background = `linear-gradient(90deg, rgba(255,0,0) ${mouseXpercentage}%, rgba(230,0,0) ${mouseXpercentage}%, rgba(230,0,0) 100%)`
     }
 }
+
+/**
+ *
+ * @description Function to custom the Legend of the chart
+ * @param { Object } props - the properties of the chart's legend
+ * @returns { HTMLElement }
+ */
 const renderLegend = (props) => {
     const { payload } = props
 
@@ -63,6 +88,13 @@ const renderLegend = (props) => {
     )
 }
 
+/**
+ * @description Component of a line chart that show average duration in minutes of user's sessions
+ * @param { Object } averageSessionsData
+ * @param { Array.<Objects> } averageSessionsData.sessions - the sessions of the user
+ * @param { Number } averageSessionsData.userId - the Id of the user
+ * @returns { HTMLElement }
+ */
 const AverageSessions = ({ averageSessionsData }) => {
     let sessions = new AverageSessionsClass(averageSessionsData.sessions)
 

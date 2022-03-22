@@ -15,6 +15,13 @@ import Activities from '../../class/Activities'
 // CSS
 import './Activity.scss'
 
+/**
+ *
+ * @description Component to custom the tooltip of the chart
+ * @param { Boolean } active - true if bars hovered over, false if not
+ * @param { Object } payload - the data data of overflown bars
+ * @returns { HTMLElement }
+ */
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
         return (
@@ -28,6 +35,14 @@ const CustomTooltip = ({ active, payload }) => {
     return null
 }
 
+/**
+ * @description Component that shows a bar chart of the weight and calories burned
+for the day by the user
+ * @param { Object } userActivity 
+ * @param { Array.<Objects> } userActivity.sessions - the sessions of the user
+ * @param { Number } userActivity.userId - the Id of the user
+ * @returns { HTMLElement }
+ */
 const Activity = ({ userActivity }) => {
     let Useractivities = new Activities(userActivity)
 

@@ -2,6 +2,12 @@ import PropTypes from 'prop-types'
 // CSS
 import './DashboardHeader.scss'
 
+/**
+ *
+ * @description Component that show the header of the dashboard
+ * @param { String } firstname - the firstname of the user
+ * @returns { HTMLElement }
+ */
 const DashboardHeader = ({ firstname }) => {
     return (
         <div className="dashboardHeader">

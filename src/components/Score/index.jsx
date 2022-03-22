@@ -3,6 +3,11 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts'
 // CSS
 import './Score.scss'
 
+/**
+ * @description function to custom the legend of the chart
+ * @param {object} props - the props of the chart
+ * @returns { HTMLElement }
+ */
 const renderLegend = (props) => {
     const { payload } = props
 
@@ -22,8 +27,14 @@ const renderLegend = (props) => {
     )
 }
 
+/**
+ *
+ * @description component that show the text about the user's score
+ * @param { Object } data - the score of the user
+ * @returns { HTMLElement }
+ */
 const CustomLabel = ({ data }) => {
-    const score = data[0].value
+    const score = data.value
 
     return (
         <div className="score__label">
@@ -32,6 +43,15 @@ const CustomLabel = ({ data }) => {
         </div>
     )
 }
+
+/**
+ * @description Component that show a pie chart of the user's goal score
+ * @component
+ * @param {number} score - the score of the user
+ * @example
+ * const score = 0.12
+ * @returns { HTMLElement }
+ */
 
 const Score = ({ score }) => {
     const percentageScore = score * 100
@@ -50,9 +70,9 @@ const Score = ({ score }) => {
                         dataKey="value"
                         startAngle={210}
                         endAngle={-210}
-                        innerRadius={'70%'}
-                        outerRadius={'80%'}
-                        cornerRadius={'50%'}
+                        innerRadius="70%"
+                        outerRadius="80%"
+                        cornerRadius="50%"
                     >
                         <Cell fill="#FF0000" stroke="#e60000" />
                         <Cell fill="transparent" stroke="transparent" />
@@ -63,7 +83,7 @@ const Score = ({ score }) => {
                         dataKey="value"
                         startAngle={210}
                         endAngle={-210}
-                        outerRadius={'70%'}
+                        outerRadius="70%"
                         fill="white"
                     />
                     <Legend
@@ -73,7 +93,7 @@ const Score = ({ score }) => {
                     />
                 </PieChart>
             </ResponsiveContainer>
-            <CustomLabel data={data} />
+            <CustomLabel data={data[0]} />
         </div>
     )
 }

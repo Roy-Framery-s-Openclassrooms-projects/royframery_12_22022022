@@ -5,6 +5,11 @@ import './SideBar.scss'
 
 const currentYear = new Date().getFullYear()
 
+/**
+ *
+ * @description Compenent that show the side bar with the navigation
+ * @returns { HTMLElement }
+ */
 const SideBar = () => {
     return (
         <div className="sideBar">

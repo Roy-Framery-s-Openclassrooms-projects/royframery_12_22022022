@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom'
 // CSS
 import './Header.scss'
 
+/**
+ *
+ * @description Compoent that show the header of the site with the navigation
+ * @returns { HTMLElement }
+ */
 const Header = () => {
     return (
         <header className="header">

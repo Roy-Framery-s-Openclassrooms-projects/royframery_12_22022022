@@ -19,6 +19,10 @@ import Score from '../Score'
 // CSS
 import './Dashboard.scss'
 
+/**
+ * @descriotion Component that show the user's dashboard
+ * @returns { HTMLElement }
+ */
 const Dashboard = () => {
     const { id } = useParams()
     const [user, setUser] = useState({})

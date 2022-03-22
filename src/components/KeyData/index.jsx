@@ -1,6 +1,16 @@
 import PropTypes from 'prop-types'
 import './KeyData.scss'
 
+/**
+ *
+ * @description Component that show a user's key data
+ * @param { String } image - Image's name of the key data
+ * @param { Number } value - Value of the key data
+ * @param { String } title - Title of the key data
+ * @param { String } color - Color of the icon's background of the key data
+ * @param { String } unity - Value's unity of the key data
+ * @returns { HTMLElement }
+ */
 const KeyData = ({ image, value, title, color, unity }) => {
     return (
         <div className="keyData">

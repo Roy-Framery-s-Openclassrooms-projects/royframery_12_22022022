@@ -13,7 +13,14 @@ import Performance from '../../class/Performance'
 // CSS
 import './Performance.scss'
 
-function renderPolarAngleAxis({ payload, x, y, cx, cy, ...rest }) {
+/**
+ *
+ * @description Function to handle the ticks position according to the chart
+ * @param { Object } props - The properties of the tick/label
+ * @returns { HTMLElement }
+ */
+function renderPolarAngleAxis(props) {
+    const { payload, x, y, cx, cy, ...rest } = props
     return (
         <Text
             {...rest}
@@ -28,6 +35,15 @@ function renderPolarAngleAxis({ payload, x, y, cx, cy, ...rest }) {
     )
 }
 
+/**
+ *
+ * @description Component that show a radar chart of the user's performance
+ * @param { Object } performanceData
+ * @param { Number } performanceData.userId - the id of the user
+ * @param { Object } performanceData.kind - the types of performance
+ * @param { Array.<Object> } performanceData.data - the performance data of the user
+ * @returns { HTMLElement }
+ */
 const Performances = ({ performanceData }) => {
     const userPerformances = new Performance(
         performanceData.kind,
