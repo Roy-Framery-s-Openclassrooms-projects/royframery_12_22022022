@@ -1,4 +1,4 @@
-![Create react app](https://img.shields.io/badge/build_with-create_reacte_app-09D3AC?style=for-the-badge&logo=Create-React-App)
+![Create react app](https://img.shields.io/badge/build_with-create_react_app-09D3AC?style=for-the-badge&logo=Create-React-App)
 ![NodeJs](https://img.shields.io/badge/Node.js-16.14.0-339933?style=for-the-badge&logo=Node.js)
 ![Sass](https://img.shields.io/badge/Sass-1.49.9-CC6699?style=for-the-badge&logo=Sass)
 # SportSee

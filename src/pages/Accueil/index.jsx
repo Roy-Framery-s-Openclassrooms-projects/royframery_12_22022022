@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 // CSS
 import './Home.scss'
 
+/**
+ * @description component to show the home page
+ * @returns { HTMLElement}
+ */
 const Home = () => {
     return (
         <div className="home">
