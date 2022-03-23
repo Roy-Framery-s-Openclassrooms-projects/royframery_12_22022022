@@ -37,11 +37,8 @@ _**SportSee**_ is a startup dedicated to sports coaching 🏃. In a way to impro
 npm start
 ```
 
-Runs the app in the development mode.\
 Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 
 ### `Launch Back-End`
